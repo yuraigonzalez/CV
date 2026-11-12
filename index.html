@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Yurai González] - Professional Portfolio & Resume</title>
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        /* Header / Hero Section */
+        header {
+            text-align: center;
+            padding: 2rem 0 3rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 3px solid var(--accent);
+            background-color: #cbd5e1;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.3rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .bio {
+            max-width: 650px;
+            margin: 0 auto 1.5rem;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            background-color: #f1f5f9;
+        }
+
+        /* Sections */
+        section {
+            margin: 3.5rem 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Skills Tags */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Experience / Timeline layout */
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .company-date {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .timeline-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Projects Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- HEADER / PROFILE -->
+        <header>
+            <img src="https://via.placeholder.com/150" alt="[Yurai González]" class="avatar">
+            <h1>[Yurai González]</h1>
+            <p class="subtitle">[Your Product Manager, e.g., Software Engineer & Designer]</p>
+            <p class="bio">
+                Results-driven professional with experience in [Key Domain/Tech]. Passionate about building impactful solutions, clean code, and continuous learning.
+            </p>
+            <div class="social-links">
+                <a href="mailto:yuraigg@gmail.com" class="btn">Get in Touch</a>
+                <a href="https://linkedin.com/in/www.linkedin.com/in/yuraigonzalez" target="_blank" class="btn btn-outline">LinkedIn</a>
+                <a href="https://github.com/https://github.com/yuraigg-boop" target="_blank" class="btn btn-outline">GitHub</a>
+                <!-- Opcional: Enlace a tu CV en PDF si lo subes a GitHub -->
+                <!-- <a href="resume.pdf" target="_blank" class="btn btn-outline">Download CV</a> -->
+            </div>
+        </header>
+
+        <!-- SKILLS SECTION -->
+        <section>
+            <h2>Skills & Expertise</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">JavaScript / TypeScript</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">HTML5 / CSS3</span>
+                <span class="skill-tag">React / Next.js</span>
+                <span class="skill-tag">Git & GitHub</span>
+                <span class="skill-tag">Problem Solving</span>
+                <span class="skill-tag">Project Management</span>
+                <span class="skill-tag">Agile Methodologies</span>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION (RESUME) -->
+        <section>
+            <h2>Professional Experience</h2>
+            
+            <div class="timeline-item">
+                <h3>[Job Title / Current Role]</h3>
+                <div class="company-date">[Company Name] | [Month, Year] – Present</div>
+                <p>
+                    Lead key initiatives to improve system architecture and performance. Collaborate cross-functionally with product and design teams to deliver high-quality software solutions.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>[Previous Job Title]</h3>
+                <div class="company-date">[Previous Company Name] | [Month, Year] – [Month, Year]</div>
+                <p>
+                    Developed responsive user interfaces, optimized backend data queries, and reduced loading times by [X]%. Assisted in mentoring junior team members.
+                </p>
+            </div>
+        </section>
+
+        <!-- FEATURED PROJECTS -->
+        <section>
+            <h2>Featured Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <div>
+                        <h3>[Project Name 1]</h3>
+                        <p>A brief description of what this project does, the technical challenges it solves, and the technologies used (e.g., Python, React).</p>
+                    </div>
+                    <a href="https://github.com/https://github.com/yuraigg-boop/[project-1]" target="_blank">View on GitHub →</a>
+                </div>
+                <div class="card">
+                    <div>
+                        <h3>[Project Name 2]</h3>
+                        <p>Description of your second major project. Highlight metrics, accomplishments, or unique features implemented.</p>
+                    </div>
+                    <a href="https://github.com/https://github.com/yuraigg-boop/[project-2]" target="_blank">View on GitHub →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section>
+            <h2>Education</h2>
+            <div class="timeline-item">
+                <h3>[Degree Name, e.g., B.S. in Computer Science]</h3>
+                <div class="company-date">[University or Institution Name] | [Graduation Year]</div>
+                <p>Focused on core computer science fundamentals, algorithms, and software engineering principles.</p>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <p>© 2026 [Yurai González]. Built with HTML/CSS and hosted on GitHub Pages.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
