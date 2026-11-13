@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yurai González - iOS App Portfolio (Figma)</title>
+    <title>Yurai González — iOS App Portfolio (Figma)</title>
+    <!-- Tipografía moderna Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --bg-color: #f7f5f0;
+            --bg-nav: rgba(247, 245, 240, 0.85);
             --text-main: #2c2522;
             --text-muted: #6b625d;
             --accent: #2c2522;
+            --accent-warm: #8c6249;
             --card-bg: #ffffff;
             --border-color: #e6e2db;
             --tag-bg: #eeebe3;
@@ -22,97 +29,168 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container {
-            max-width: 740px;
+        /* NAVEGACIÓN SUPERIOR FIJA */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: var(--bg-nav);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 820px;
             margin: 0 auto;
-            padding: 4rem 1.5rem;
+            padding: 0.9rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .back-link {
-            display: inline-block;
+        .nav-brand {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .back-link-nav {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid var(--text-muted);
-            padding-bottom: 2px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
         }
 
-        .back-link:hover {
+        .back-link-nav:hover {
             color: var(--text-main);
-            border-color: var(--text-main);
         }
 
-        h1 {
-            font-size: 1.85rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.5rem;
+        /* CONTENEDOR PRINCIPAL */
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 3.5rem 1.5rem 4rem;
         }
 
-        .subtitle-desc {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-bottom: 2.5rem;
+        .header-project {
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(14px);
+            animation: fadeIn 0.6s ease forwards;
         }
 
-        .process-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-        }
-
-        .process-step {
-            background: var(--card-bg);
-            padding: 1.8rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 2px 8px rgba(44, 37, 34, 0.02);
-        }
-
-        .step-number {
+        .badge-project {
             display: inline-block;
             font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.06em;
             background: var(--tag-bg);
-            color: var(--tag-text);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            margin-bottom: 0.6rem;
+            color: var(--accent-warm);
+            padding: 0.3rem 0.8rem;
+            border-radius: 999px;
+            margin-bottom: 0.8rem;
             border: 1px solid var(--border-color);
         }
 
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin-bottom: 0.6rem;
+        }
+
+        .subtitle-desc {
+            color: var(--text-muted);
+            font-size: 1.02rem;
+            line-height: 1.65;
+        }
+
+        /* CUADRÍCULA DE PASOS DEL PROCESO */
+        .process-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .process-step {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 16px rgba(44, 37, 34, 0.03);
+            opacity: 0;
+            transform: translateY(16px);
+            transition: all 0.3s ease;
+        }
+
+        .process-step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .process-step:hover {
+            border-color: #c9c2b6;
+            box-shadow: 0 10px 30px rgba(44, 37, 34, 0.06);
+        }
+
+        .step-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-number {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--accent-warm);
+        }
+
         .process-step h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.4rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
         }
 
         .process-step p {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.2rem;
+            font-size: 0.94rem;
+            margin-bottom: 1.35rem;
+            line-height: 1.6;
         }
 
+        /* CONTENEDOR DE IMÁGENES / CAPTURAS */
         .screenshot-container {
             width: 100%;
-            background: #eeebe3;
-            border-radius: 8px;
+            background: #f2eee9;
+            border-radius: 10px;
             overflow: hidden;
             border: 1px solid var(--border-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
         }
 
         .screenshot-container img {
@@ -120,74 +198,136 @@
             height: auto;
             display: block;
             object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .screenshot-container:hover img {
+            transform: scale(1.015);
         }
 
         footer {
-            text-align: left;
-            padding-top: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding-top: 2.5rem;
             border-top: 1px solid var(--border-color);
             color: var(--text-muted);
-            font-size: 0.85rem;
+            font-size: 0.84rem;
             margin-top: 4rem;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 2.5rem 1.2rem;
+            }
+            .process-step {
+                padding: 1.35rem;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- BARRA SUPERIOR CON ACCESO RÁPIDO -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">YG.</a>
+            <a href="index.html" class="back-link-nav">← Back to CV & Home</a>
+        </div>
+    </nav>
+
     <div class="container">
-        <a href="index.html" class="back-link">← Back to CV & Home</a>
         
-        <h1>iOS App Product Design Process</h1>
-        <p class="subtitle-desc">
-            A comprehensive look at how Figma was utilized as the central core for organizing ideas, structured proposals, user solutions, and final prototyping during the iOS app development project at Simplon.
-        </p>
+        <div class="header-project">
+            <span class="badge-project">Simplon • Apple Foundation Program</span>
+            <h1>iOS App Product Design Process</h1>
+            <p class="subtitle-desc">
+                A comprehensive breakdown of how Figma was utilized as the central core for organizing ideas, structured wireframe proposals, user solutions, and final interactive prototyping.
+            </p>
+        </div>
 
         <div class="process-grid">
             <!-- Step 1 -->
             <div class="process-step">
-                <span class="step-number">Step 01</span>
+                <div class="step-header">
+                    <span class="step-number">Phase 01</span>
+                </div>
                 <h3>Organization of Ideas & Brainstorming</h3>
                 <p>Structuring initial concepts, user research insights, and core feature requirements using collaborative boards in Figma.</p>
                 <div class="screenshot-container">
-                    <img src="step1.png" alt="Step 1: Organization of Ideas">
+                    <img src="step1.png" alt="Step 1: Organization of Ideas" loading="lazy">
                 </div>
             </div>
 
             <!-- Step 2 -->
             <div class="process-step">
-                <span class="step-number">Step 02</span>
+                <div class="step-header">
+                    <span class="step-number">Phase 02</span>
+                </div>
                 <h3>Proposals & Wireframing</h3>
-                <p>Translating requirements into low-fidelity structural layouts and wireframes to map user flows effectively.</p>
+                <p>Translating requirements into low-fidelity structural layouts and wireframes to map core user flows effectively.</p>
                 <div class="screenshot-container">
-                    <img src="step2.png" alt="Step 2: Proposals">
+                    <img src="step2.png" alt="Step 2: Proposals and Wireframing" loading="lazy">
                 </div>
             </div>
 
             <!-- Step 3 -->
             <div class="process-step">
-                <span class="step-number">Step 03</span>
+                <div class="step-header">
+                    <span class="step-number">Phase 03</span>
+                </div>
                 <h3>User Solution & Iteration</h3>
-                <p>Refining interface designs and usability adjustments based on cross-functional feedback and technical feasibility.</p>
+                <p>Refining interface designs and usability adjustments based on cross-functional team feedback and technical feasibility.</p>
                 <div class="screenshot-container">
-                    <img src="step3.png" alt="Step 3: Solution">
+                    <img src="step3.png" alt="Step 3: User Solution and Iteration" loading="lazy">
                 </div>
             </div>
 
             <!-- Step 4 -->
             <div class="process-step">
-                <span class="step-number">Step 04</span>
+                <div class="step-header">
+                    <span class="step-number">Phase 04</span>
+                </div>
                 <h3>Final Product Prototype</h3>
                 <p>High-fidelity, interactive iOS application prototype ready for stakeholder review and developer handoff.</p>
                 <div class="screenshot-container">
-                    <img src="step4.png" alt="Step 4: Final Proposal">
+                    <img src="step4.png" alt="Step 4: Final Product Prototype" loading="lazy">
                 </div>
             </div>
         </div>
 
         <footer>
             <p>© 2026 Yurai González. All rights reserved.</p>
+            <p>Product Design Portfolio</p>
         </footer>
     </div>
+
+    <!-- SCRIPT PARA APARICIÓN ESCalonada DE LOS PASOS -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.process-step').forEach(step => {
+            observer.observe(step);
+        });
+    </script>
 
 </body>
 </html>
