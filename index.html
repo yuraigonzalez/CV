@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yurai González - Product Manager & Portfolio</title>
+    <title>Yurai González — Product Manager & Portfolio</title>
+    <!-- Tipografía moderna Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --bg-color: #f7f5f0; /* Tono crema estilo Yukaidu */
-            --text-main: #2c2522;  /* Marrón oscuro elegante */
-            --text-muted: #6b625d; /* Marrón grisáceo suave */
+            --bg-color: #f7f5f0;
+            --bg-nav: rgba(247, 245, 240, 0.85);
+            --text-main: #2c2522;
+            --text-muted: #6b625d;
             --accent: #2c2522;
+            --accent-warm: #8c6249;
             --accent-hover: #4a403c;
             --card-bg: #ffffff;
             --border-color: #e6e2db;
@@ -23,60 +30,145 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
 
-        .container {
-            max-width: 740px;
-            margin: 0 auto;
-            padding: 5rem 1.5rem;
+        /* BARRA DE NAVEGACIÓN FLOTANTE */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: var(--bg-nav);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
         }
 
+        .nav-container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0.9rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        /* CONTENEDOR PRINCIPAL MÁS COMPACTO Y EQUILIBRADO */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 3.5rem 1.5rem 4rem;
+        }
+
+        /* HEADER / HERO */
         header {
             display: flex;
             align-items: center;
             gap: 2.5rem;
-            margin-bottom: 4rem;
-            padding-bottom: 3rem;
+            margin-bottom: 3rem;
+            padding-bottom: 2.5rem;
             border-bottom: 1px solid var(--border-color);
         }
 
-        /* Foto de perfil más grande y centrada para que no corte la cabeza */
+        .avatar-wrapper {
+            position: relative;
+            flex-shrink: 0;
+        }
+
         .avatar {
-            width: 140px;
-            height: 140px;
+            width: 135px;
+            height: 135px;
             border-radius: 50%;
             object-fit: cover;
-            object-position: center 20%; /* Enfoca la parte superior de la foto */
-            border: 2px solid var(--border-color);
-            flex-shrink: 0;
-            box-shadow: 0 4px 12px rgba(44, 37, 34, 0.06);
+            object-position: center 20%;
+            border: 3px solid var(--card-bg);
+            box-shadow: 0 8px 24px rgba(44, 37, 34, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.03);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background-color: var(--tag-bg);
+            border: 1px solid var(--border-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.6rem;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background-color: #2e7d32;
+            border-radius: 50%;
+            display: inline-block;
         }
 
         .hero-content h1 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.2rem;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 0.25rem;
         }
 
         .subtitle {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            margin-bottom: 0.8rem;
+            font-size: 1.05rem;
+            color: var(--accent-warm);
+            font-weight: 600;
+            margin-bottom: 0.85rem;
         }
 
         .bio {
             color: var(--text-muted);
             font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1.2rem;
+            line-height: 1.65;
+            margin-bottom: 1.35rem;
+            max-width: 640px;
         }
 
         .cta-group {
@@ -87,195 +179,345 @@
         }
 
         .btn-primary {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
             background-color: var(--accent);
             color: #ffffff;
             padding: 0.65rem 1.35rem;
             border-radius: 8px;
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: background-color 0.2s ease, transform 0.1s ease;
+            font-size: 0.88rem;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(44, 37, 34, 0.12);
+            transition: all 0.2s ease;
         }
 
         .btn-primary:hover {
             background-color: var(--accent-hover);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(44, 37, 34, 0.18);
         }
 
         .contact-links {
             display: flex;
-            gap: 1.2rem;
+            gap: 1rem;
             flex-wrap: wrap;
         }
 
-        .contact-links a {
+        .contact-pill {
             color: var(--text-main);
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 0.9rem;
+            border-radius: 8px;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 500;
-            border-bottom: 1px solid var(--text-main);
-            padding-bottom: 1px;
+            transition: all 0.2s ease;
         }
 
-        .contact-links a:hover {
-            opacity: 0.7;
+        .contact-pill:hover {
+            border-color: var(--text-main);
+            background-color: var(--tag-bg);
         }
 
+        /* SECCIONES Y TÍTULOS */
         section {
-            margin-bottom: 3.5rem;
+            margin-bottom: 3.25rem;
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.35rem;
         }
 
         h2 {
-            font-size: 1.05rem;
-            font-weight: 600;
+            font-size: 0.85rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.08em;
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
         }
 
+        .section-line {
+            height: 1px;
+            background-color: var(--border-color);
+            flex-grow: 1;
+        }
+
+        /* SKILLS */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.55rem;
+            gap: 0.5rem;
         }
 
         .skill-tag {
-            background-color: var(--tag-bg);
+            background-color: var(--card-bg);
             color: var(--tag-text);
-            padding: 0.4rem 0.85rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
+            padding: 0.42rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.83rem;
             font-weight: 500;
             border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+            cursor: default;
         }
 
-        .grid {
+        .skill-tag:hover {
+            background-color: var(--text-main);
+            color: #ffffff;
+            border-color: var(--text-main);
+            transform: translateY(-1px);
+        }
+
+        /* PROYECTOS EN CUADRÍCULA DE 2 COLUMNAS */
+        .projects-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.25rem;
         }
 
         .card {
             background: var(--card-bg);
             padding: 1.5rem;
-            border-radius: 12px;
+            border-radius: 14px;
             border: 1px solid var(--border-color);
-            box-shadow: 0 2px 8px rgba(44, 37, 34, 0.02);
-            transition: border-color 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 2px 10px rgba(44, 37, 34, 0.03);
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card.featured {
+            grid-column: 1 / -1;
+            background: linear-gradient(to right, #ffffff, #fcfbf8);
+            border-left: 4px solid var(--accent-warm);
         }
 
         .card:hover {
-            border-color: #d4cfc5;
-            transform: translateY(-2px);
+            border-color: #c9c2b6;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(44, 37, 34, 0.06);
         }
 
         .card-tag {
             display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 600;
+            font-size: 0.72rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.04em;
-            color: var(--text-muted);
-            margin-bottom: 0.4rem;
+            letter-spacing: 0.05em;
+            color: var(--accent-warm);
+            margin-bottom: 0.45rem;
         }
 
         .card h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.08rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
+            color: var(--text-main);
         }
 
         .card p {
             color: var(--text-muted);
-            font-size: 0.92rem;
-            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            margin-bottom: 1.1rem;
         }
 
-        .card a {
+        .card-link {
             color: var(--text-main);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.88rem;
+            font-size: 0.86rem;
             display: inline-flex;
             align-items: center;
-            gap: 0.3rem;
+            gap: 0.35rem;
+            transition: gap 0.2s ease, color 0.2s ease;
         }
 
-        .card a:hover {
-            text-decoration: underline;
+        .card-link:hover {
+            color: var(--accent-warm);
+            gap: 0.6rem;
+        }
+
+        /* EXPERIENCIA Y EDUCACIÓN EN DOS COLUMNAS ASIMÉTRICAS */
+        .two-col-layout {
+            display: grid;
+            grid-template-columns: 1.45fr 1fr;
+            gap: 2.5rem;
         }
 
         .timeline-item {
-            margin-bottom: 2rem;
-            padding-left: 1rem;
+            position: relative;
+            margin-bottom: 1.75rem;
+            padding-left: 1.35rem;
             border-left: 2px solid var(--border-color);
+            transition: border-color 0.2s ease;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--bg-color);
+            border: 2px solid var(--text-muted);
+            transition: all 0.2s ease;
+        }
+
+        .timeline-item:hover {
+            border-left-color: var(--accent-warm);
+        }
+
+        .timeline-item:hover::before {
+            background-color: var(--accent-warm);
+            border-color: var(--accent-warm);
+            transform: scale(1.2);
         }
 
         .timeline-item h3 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 0.2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.15rem;
         }
 
         .company-date {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--accent-warm);
+            margin-bottom: 0.45rem;
         }
 
         .timeline-item p {
             color: var(--text-muted);
-            font-size: 0.94rem;
+            font-size: 0.9rem;
+        }
+
+        .edu-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .edu-card h3 {
+            font-size: 0.96rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .edu-card .company-date {
+            margin-bottom: 0;
         }
 
         footer {
-            text-align: left;
-            padding-top: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding-top: 2rem;
             border-top: 1px solid var(--border-color);
             color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-top: 4rem;
+            font-size: 0.84rem;
+            margin-top: 2rem;
+        }
+
+        /* RESPONSIVE PARA MÓVILES Y TABLETS */
+        @media (max-width: 768px) {
+            .projects-grid,
+            .two-col-layout {
+                grid-template-columns: 1fr;
+            }
+            .two-col-layout {
+                gap: 1.5rem;
+            }
         }
 
         @media (max-width: 600px) {
+            .nav-links {
+                gap: 0.9rem;
+            }
+            .nav-links a.hide-mobile {
+                display: none;
+            }
             header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 1.5rem;
+                gap: 1.25rem;
             }
             .container {
-                padding: 3rem 1.2rem;
+                padding: 2rem 1.2rem;
+            }
+            .hero-content h1 {
+                font-size: 1.85rem;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- NAVEGACIÓN RÁPIDA -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-brand">YG.</a>
+            <div class="nav-links">
+                <a href="#skills" class="hide-mobile">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#education" class="hide-mobile">Education</a>
+                <a href="portfolio.html" target="_blank" style="color: var(--text-main); font-weight: 600;">Portfolio ↗</a>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <!-- HEADER / PROFILE -->
         <header>
-            <img src="IMG_9074.JPG" alt="Yurai González" class="avatar">
+            <div class="avatar-wrapper">
+                <img src="IMG_9074.JPG" alt="Yurai González" class="avatar">
+            </div>
             <div class="hero-content">
+                <div class="status-badge">
+                    <span class="status-dot"></span> Open to Product Manager Opportunities • Lyon / Remote
+                </div>
                 <h1>Yurai González</h1>
-                <p class="subtitle">Product Manager</p>
+                <p class="subtitle">Product Manager • ES / FR / EN</p>
                 <p class="bio">
-                    Trilingual professional (ES/FR/EN) experienced in project coordination, cross-functional team leadership, and digital workflow modernization. Passionate about building user-centric digital products and aligning business value with technical execution.
+                    Trilingual professional experienced in project coordination, cross-functional team leadership, and digital workflow modernization. Passionate about building user-centric digital products and aligning business value with technical execution.
                 </p>
                 <div class="cta-group">
-                    <a href="portfolio.html" target="_blank" class="btn-primary">View Portfolio & Projects ↗</a>
+                    <a href="portfolio.html" target="_blank" class="btn-primary">View Full Portfolio ↗</a>
                     <div class="contact-links">
-                        <a href="mailto:yuraigg@gmail.com">yuraigg@gmail.com</a>
-                        <a href="tel:+33695645993">+33 6 95 64 59 93</a>
+                        <a href="mailto:yuraigg@gmail.com" class="contact-pill">✉ yuraigg@gmail.com</a>
+                        <a href="tel:+33695645993" class="contact-pill">✆ +33 6 95 64 59 93</a>
                     </div>
                 </div>
             </div>
         </header>
 
         <!-- TOOLS & SOFTWARE -->
-        <section>
-            <h2>Tools, Software & Skills</h2>
+        <section id="skills">
+            <div class="section-header">
+                <h2>Tools, Software & Skills</h2>
+                <div class="section-line"></div>
+            </div>
             <div class="skills-grid">
                 <span class="skill-tag">Figma (UI/UX & Prototyping)</span>
                 <span class="skill-tag">Jira</span>
@@ -290,78 +532,118 @@
         </section>
 
         <!-- FEATURED PROJECTS -->
-        <section>
-            <h2>Featured Projects</h2>
-            <div class="grid">
-                <div class="card">
-                    <span class="card-tag">Mobile Product • Simplon</span>
-                    <h3>iOS Application Development Process (Figma)</h3>
-                    <p>Explore the end-to-end product design process using Figma: idea organization, wireframe proposals, user solutions, and final prototyping.</p>
-                    <a href="portfolio.html" target="_blank">View Figma Case Study ↗</a>
+        <section id="projects">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="card featured">
+                    <div>
+                        <span class="card-tag">Featured Case Study • Mobile Product • Simplon</span>
+                        <h3>iOS Application Development Process (Figma)</h3>
+                        <p>Explore the end-to-end product design process using Figma: idea organization, wireframe proposals, user solutions, and final interactive prototyping.</p>
+                    </div>
+                    <div>
+                        <a href="portfolio.html" target="_blank" class="card-link">View Figma Case Study ↗</a>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <span class="card-tag">Data & Digitalization • Lyon</span>
-                    <h3>Digital Archive Production & Database Structuring</h3>
-                    <p>Managed a team of 3 to 5 students to collect, classify, and structure over 350 historical documents and photographs into searchable internal databases.</p>
+                    <div>
+                        <span class="card-tag">Data & Digitalization • Lyon</span>
+                        <h3>Digital Archive Production & Database Structuring</h3>
+                        <p>Managed a team of 3 to 5 students to collect, classify, and structure over 350 historical documents and photographs into searchable internal databases.</p>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <span class="card-tag">Research & Publication • Paris</span>
-                    <h3>Industrial & Cultural Heritage Conservation Research</h3>
-                    <p>Conducted archival research and qualitative/quantitative data analysis, resulting in the co-authoring of an international scientific publication.</p>
-                    <a href="https://journals.openedition.org/ephaistos/12702" target="_blank">Read Published Paper →</a>
+                    <div>
+                        <span class="card-tag">Research & Publication • Paris</span>
+                        <h3>Industrial & Cultural Heritage Conservation Research</h3>
+                        <p>Conducted archival research and qualitative/quantitative data analysis, resulting in the co-authoring of an international scientific publication.</p>
+                    </div>
+                    <div>
+                        <a href="https://journals.openedition.org/ephaistos/12702" target="_blank" class="card-link">Read Published Paper →</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- PROFESSIONAL EXPERIENCE -->
-        <section>
-            <h2>Professional Experience</h2>
-            
-            <div class="timeline-item">
-                <h3>Project Manager – iOS App Development Training</h3>
-                <div class="company-date">Simplon (Villeurbanne, France) | June 2026</div>
-                <p>Organizational coordination within a multidisciplinary team, rigorous planning, task prioritization, and methodological adherence.</p>
-            </div>
+        <!-- EXPERIENCE & EDUCATION SIDE BY SIDE -->
+        <div class="two-col-layout">
+            <!-- PROFESSIONAL EXPERIENCE -->
+            <section id="experience">
+                <div class="section-header">
+                    <h2>Professional Experience</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>Project Manager – iOS App Development Training</h3>
+                    <div class="company-date">Simplon (Villeurbanne, France) | June 2026</div>
+                    <p>Organizational coordination within a multidisciplinary team, rigorous planning, task prioritization, and methodological adherence.</p>
+                </div>
 
-            <div class="timeline-item">
-                <h3>Digital Production Manager</h3>
-                <div class="company-date">Archives – Lyon, France | Apr 2024 – Dec 2025</div>
-                <p>Led a team of 3–5 graduate/undergraduate students and piloted documentation projects structuring 350+ digital assets in databases.</p>
-            </div>
+                <div class="timeline-item">
+                    <h3>Digital Production Manager</h3>
+                    <div class="company-date">Archives – Lyon, France | Apr 2024 – Dec 2025</div>
+                    <p>Led a team of 3–5 graduate/undergraduate students and piloted documentation projects structuring 350+ digital assets in databases.</p>
+                </div>
 
-            <div class="timeline-item">
-                <h3>Heritage Guided Tours Coordinator</h3>
-                <div class="company-date">Lyon, France | Apr 2025 – Aug 2025</div>
-                <p>Trilingual hosting and coordination (FR/EN/ES) for international groups of 15–30 visitors, focused on client experience and continuous service improvement.</p>
-            </div>
+                <div class="timeline-item">
+                    <h3>Heritage Guided Tours Coordinator</h3>
+                    <div class="company-date">Lyon, France | Apr 2025 – Aug 2025</div>
+                    <p>Trilingual hosting and coordination (FR/EN/ES) for international groups of 15–30 visitors, focused on client experience and continuous service improvement.</p>
+                </div>
 
-            <div class="timeline-item">
-                <h3>Research Lead in Cultural & Industrial Heritage</h3>
-                <div class="company-date">Paris, France | 2020 – 2022</div>
-                <p>Archival research and qualitative/quantitative data analysis leading to international academic publication.</p>
-            </div>
-        </section>
+                <div class="timeline-item">
+                    <h3>Research Lead in Cultural & Industrial Heritage</h3>
+                    <div class="company-date">Paris, France | 2020 – 2022</div>
+                    <p>Archival research and qualitative/quantitative data analysis leading to international academic publication.</p>
+                </div>
+            </section>
 
-        <!-- EDUCATION -->
-        <section>
-            <h2>Education</h2>
-            <div class="timeline-item">
-                <h3>Apple Foundation Program – iOS App Development & AI Acculturation</h3>
-                <div class="company-date">Simplon, France | 2026</div>
-            </div>
-            <div class="timeline-item">
-                <h3>Erasmus Mundus Master – TPTI (Techniques, Heritage, Industrial Territories)</h3>
-                <div class="company-date">Université Paris 1 Panthéon-Sorbonne (France, Portugal, Italy) | 2020 – 2022</div>
-            </div>
-        </section>
+            <!-- EDUCATION -->
+            <section id="education">
+                <div class="section-header">
+                    <h2>Education</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="edu-card">
+                    <h3>Apple Foundation Program – iOS App Development & AI Acculturation</h3>
+                    <div class="company-date">Simplon, France | 2026</div>
+                </div>
+
+                <div class="edu-card">
+                    <h3>Erasmus Mundus Master – TPTI (Techniques, Heritage, Industrial Territories)</h3>
+                    <div class="company-date">Université Paris 1 Panthéon-Sorbonne (France, Portugal, Italy) | 2020 – 2022</div>
+                </div>
+            </section>
+        </div>
 
         <!-- FOOTER -->
         <footer>
             <p>© 2026 Yurai González. All rights reserved.</p>
+            <p>Based in Lyon, France</p>
         </footer>
     </div>
+
+    <!-- PEQUEÑO SCRIPT PARA ANIMACIÓN SUAVE AL HACER SCROLL -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 
 </body>
 </html>
