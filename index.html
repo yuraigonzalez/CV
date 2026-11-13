@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +9,16 @@
             --bg-color: #fafafa;
             --text-main: #111111;
             --text-muted: #666666;
+            --accent: #111111;
+            --accent-hover: #333333;
             --card-bg: #ffffff;
             --border-color: #eaeaea;
             --tag-bg: #f4f4f5;
             --tag-text: #18181b;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         * {
@@ -30,7 +36,7 @@
         }
 
         .container {
-            max-width: 720px;
+            max-width: 740px;
             margin: 0 auto;
             padding: 5rem 1.5rem;
         }
@@ -46,8 +52,8 @@
         }
 
         .avatar {
-            width: 100px;
-            height: 100px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             object-fit: cover;
             border: 1px solid var(--border-color);
@@ -55,14 +61,14 @@
         }
 
         .hero-content h1 {
-            font-size: 1.8rem;
+            font-size: 1.85rem;
             font-weight: 700;
             letter-spacing: -0.02em;
             margin-bottom: 0.2rem;
         }
 
         .subtitle {
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: var(--text-muted);
             font-weight: 500;
             margin-bottom: 0.8rem;
@@ -72,61 +78,141 @@
             color: var(--text-muted);
             font-size: 0.95rem;
             line-height: 1.5;
+            margin-bottom: 1.2rem;
         }
 
-        /* Secciones Generales */
+        .cta-group {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--accent);
+            color: #ffffff;
+            padding: 0.6rem 1.25rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-bottom: 1px solid var(--text-main);
+            padding-bottom: 1px;
+        }
+
+        .contact-links a:hover {
+            opacity: 0.7;
+        }
+
         section {
             margin-bottom: 3.5rem;
         }
 
         h2 {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.06em;
             color: var(--text-muted);
             margin-bottom: 1.5rem;
         }
 
-        /* Skills Tags */
+        /* Skills & Tools Tags */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.55rem;
         }
 
         .skill-tag {
             background-color: var(--tag-bg);
             color: var(--tag-text);
-            padding: 0.35rem 0.8rem;
+            padding: 0.4rem 0.85rem;
             border-radius: 6px;
             font-size: 0.85rem;
             font-weight: 500;
+            border: 1px solid var(--border-color);
         }
 
-        /* Timeline / Experiencia */
-        .timeline-item {
-            margin-bottom: 2rem;
+        /* Process Steps (Figma / iOS App) */
+        .process-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
         }
 
-        .timeline-item h3 {
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 0.2rem;
+        .process-step {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
         }
 
-        .company-date {
-            font-size: 0.85rem;
-            color: var(--text-muted);
+        .step-number {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: var(--tag-bg);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
             margin-bottom: 0.5rem;
+            border: 1px solid var(--border-color);
         }
 
-        .timeline-item p {
+        .process-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .process-step p {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 0.92rem;
+            margin-bottom: 1rem;
         }
 
-        /* Tarjetas de Proyectos / Experiencia clave */
+        .screenshot-container {
+            width: 100%;
+            background: #f1f5f9;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+        }
+
+        .screenshot-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Tarjetas de Proyectos */
         .grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -146,40 +232,66 @@
             transform: translateY(-2px);
         }
 
+        .card-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+
         .card h3 {
             font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
         }
 
         .card p {
             color: var(--text-muted);
             font-size: 0.92rem;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
 
-        /* Enlaces de Contacto */
-        .contact-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-links a {
+        .card a {
             color: var(--text-main);
             text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            border-bottom: 1px solid var(--text-main);
-            padding-bottom: 1px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
         }
 
-        .contact-links a:hover {
-            opacity: 0.7;
+        .card a:hover {
+            text-decoration: underline;
         }
 
-        /* Footer */
+        /* Timeline / Experiencia */
+        .timeline-item {
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .company-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-muted);
+            font-size: 0.94rem;
+        }
+
         footer {
             text-align: left;
             padding-top: 3rem;
@@ -204,85 +316,155 @@
 <body>
 
     <div class="container">
-        <!-- HEADER / PERFIL -->
+        <!-- HEADER / PROFILE -->
         <header>
-            <!-- Tu foto real subida al repositorio -->
             <img src="IMG_9074.JPG" alt="Yurai González" class="avatar">
             <div class="hero-content">
                 <h1>Yurai González</h1>
                 <p class="subtitle">Product Manager</p>
                 <p class="bio">
-                    Profesional trilingue (ES/FR/EN) experimentada en coordinación de proyectos, gestión de equipos y modernización de procedimientos digitales. Apasionada por liderar iniciativas tecnológicas y alinear valor de negocio con equipos multidisciplinarios.
+                    Trilingual professional (ES/FR/EN) experienced in project coordination, cross-functional team leadership, and digital workflow modernization. Passionate about building user-centric digital products and aligning business value with technical execution.
                 </p>
-                <div class="contact-links">
-                    <a href="mailto:yuraigg@gmail.com">yuraigg@gmail.com</a>
-                    <a href="tel:+33695645993">+33 6 95 64 59 93</a>
-                    <a href="https://github.com/yuraigg-boop" target="_blank">GitHub</a>
+                <div class="cta-group">
+                    <a href="#portfolio" class="btn-primary">View Portfolio & Projects ↓</a>
+                    <div class="contact-links">
+                        <a href="mailto:yuraigg@gmail.com">yuraigg@gmail.com</a>
+                        <a href="tel:+33695645993">+33 6 95 64 59 93</a>
+                    </div>
                 </div>
             </div>
         </header>
 
-        <!-- HABILIDADES -->
+        <!-- TOOLS & SOFTWARE -->
         <section>
-            <h2>Competencias & Herramientas</h2>
+            <h2>Tools, Software & Skills</h2>
             <div class="skills-grid">
-                <span class="skill-tag">Gestión de Proyectos</span>
-                <span class="skill-tag">Jira & Notion</span>
-                <span class="skill-tag">Coordinación de Equipos</span>
-                <span class="skill-tag">Bases de Datos</span>
-                <span class="skill-tag">Español (Nativo)</span>
-                <span class="skill-tag">Francés (Courant)</span>
-                <span class="skill-tag">Inglés (Courant)</span>
+                <span class="skill-tag">Figma (UI/UX & Prototyping)</span>
+                <span class="skill-tag">Jira</span>
+                <span class="skill-tag">Notion</span>
+                <span class="skill-tag">Product Management</span>
+                <span class="skill-tag">iOS App Development (Apple Foundation)</span>
+                <span class="skill-tag">AI Tools & Acculturation</span>
+                <span class="skill-tag">Spanish (Native)</span>
+                <span class="skill-tag">French (Fluent)</span>
+                <span class="skill-tag">English (Fluent)</span>
             </div>
         </section>
 
-        <!-- EXPERIENCIA PROFESIONAL -->
+        <!-- FIGMA PROCESS & IOS APP SCREENSHOTS -->
+        <section id="portfolio">
+            <h2>iOS App Product Design Process (Figma)</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                Using Figma as the central core for organizing ideas, structured proposals, user solutions, and final prototyping during the iOS app development project at Simplon.
+            </p>
+            
+            <div class="process-grid">
+                <!-- Step 1 -->
+                <div class="process-step">
+                    <span class="step-number">Step 01</span>
+                    <h3>Organization of Ideas & Brainstorming</h3>
+                    <p>Structuring initial concepts, user research insights, and core feature requirements using collaborative boards in Figma.</p>
+                    <div class="screenshot-container">
+                        <img src="step1.png" alt="Step 1: Organization of Ideas">
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-step">
+                    <span class="step-number">Step 02</span>
+                    <h3>Proposals & Wireframing</h3>
+                    <p>Translating requirements into low-fidelity structural layouts and wireframes to map user flows effectively.</p>
+                    <div class="screenshot-container">
+                        <img src="step2.png" alt="Step 2: Proposals">
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-step">
+                    <span class="step-number">Step 03</span>
+                    <h3>User Solution & Iteration</h3>
+                    <p>Refining interface designs and usability adjustments based on cross-functional feedback and technical feasibility.</p>
+                    <div class="screenshot-container">
+                        <img src="step3.png" alt="Step 3: Solution">
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-step">
+                    <span class="step-number">Step 04</span>
+                    <h3>Final Product Prototype</h3>
+                    <p>High-fidelity, interactive iOS application prototype ready for stakeholder review and developer handoff.</p>
+                    <div class="screenshot-container">
+                        <img src="step4.png" alt="Step 4: Final Proposal">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED PROJECTS -->
         <section>
-            <h2>Experiencia Profesional</h2>
+            <h2>Featured Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <span class="card-tag">Data & Digitalization • Lyon</span>
+                    <h3>Digital Archive Production & Database Structuring</h3>
+                    <p>Managed a team of 3 to 5 students to collect, classify, and structure over 350 historical documents and photographs into searchable internal databases.</p>
+                </div>
+
+                <div class="card">
+                    <span class="card-tag">Research & Publication • Paris</span>
+                    <h3>Industrial & Cultural Heritage Conservation Research</h3>
+                    <p>Conducted archival research and qualitative/quantitative data analysis, resulting in the co-authoring of an international scientific publication.</p>
+                    <a href="https://journals.openedition.org/ephaistos/12702" target="_blank">Read Published Paper →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROFESSIONAL EXPERIENCE -->
+        <section>
+            <h2>Professional Experience</h2>
             
             <div class="timeline-item">
-                <h3>Cheffe de Projet - Formación Desarrollo App iOS</h3>
-                <div class="company-date">Simplon (Villeurbanne) | 01/06/2026 - 26/06/2026</div>
-                <p>Coordination organisationnelle au sein d'une équipe pluridisciplinaire. Planification rigoureuse, priorisation des tâches et respect des exigences méthodologiques.</p>
+                <h3>Project Manager – iOS App Development Training</h3>
+                <div class="company-date">Simplon (Villeurbanne, France) | June 2026</div>
+                <p>Organizational coordination within a multidisciplinary team, rigorous planning, task prioritization, and methodological adherence.</p>
             </div>
 
             <div class="timeline-item">
-                <h3>Manager de la Production Numérique Archives</h3>
-                <div class="company-date">Lyon | 04/2024 - 12/2025</div>
-                <p>Gestion d'une équipe composée de 3 à 5 étudiants et pilotage de projets de documentation ayant permis de collecter, classer et structurer plus de 350 documents et photographies dans des bases de données.</p>
+                <h3>Digital Production Manager</h3>
+                <div class="company-date">Archives – Lyon, France | Apr 2024 – Dec 2025</div>
+                <p>Led a team of 3–5 graduate/undergraduate students and piloted documentation projects structuring 350+ digital assets in databases.</p>
             </div>
 
             <div class="timeline-item">
-                <h3>Responsable des Visites Touristiques du Patrimoine</h3>
-                <div class="company-date">Lyon | 04/2025 - 08/2025</div>
-                <p>Accueil, accompagnement et animation trilingue de groupes internationaux, gestion de la relation client et amélioration continue des prestations.</p>
+                <h3>Heritage Guided Tours Coordinator</h3>
+                <div class="company-date">Lyon, France | Apr 2025 – Aug 2025</div>
+                <p>Trilingual hosting and coordination (FR/EN/ES) for international groups of 15–30 visitors, focused on client experience and continuous service improvement.</p>
             </div>
 
             <div class="timeline-item">
-                <h3>Responsable de la Recherche en Conservation</h3>
-                <div class="company-date">Paris | 2020 - 2022</div>
-                <p>Réalisation de recherches archivistiques et analyses rigoureuses de données menant à une co-rédaction de publication scientifique internationale[cite: 22].</p>
+                <h3>Research Lead in Cultural & Industrial Heritage</h3>
+                <div class="company-date">Paris, France | 2020 – 2022</div>
+                <p>Archival research and qualitative/quantitative data analysis leading to international academic publication.</p>
             </div>
         </section>
 
-        <!-- FORMACIÓN -->
+        <!-- EDUCATION -->
         <section>
-            <h2>Formación</h2>
+            <h2>Education</h2>
             <div class="timeline-item">
-                <h3>Master Erasmus Mundus - TPTI (Paris-Portugal-Italie)</h3>
-                <div class="company-date">Université Paris 1 Panthéon-Sorbonne | 2020 - 2022</div>
-                <p>Techniques, Patrimoine, Territoires de l'Industrie[cite: 22].</p>
+                <h3>Apple Foundation Program – iOS App Development & AI Acculturation</h3>
+                <div class="company-date">Simplon, France | 2026</div>
             </div>
             <div class="timeline-item">
-                <h3>Apple Foundation Program & Acculturation IA</h3>
-                <div class="company-date">Simplon, France | 2026[cite: 22]</div>
-                <p>Desarrollo de Aplicación iOS y formación en Inteligencia Artificial[cite: 22].</p>
+                <h3>Erasmus Mundus Master – TPTI (Techniques, Heritage, Industrial Territories)</h3>
+                <div class="company-date">Université Paris 1 Panthéon-Sorbonne (France, Portugal, Italy) | 2020 – 2022</div>
             </div>
         </section>
 
         <!-- FOOTER -->
         <footer>
-            <p>© 2026 Yurai González. Todos los derechos reservados.</p>
+            <p>© 2026 Yurai González. All rights reserved.</p>
         </footer>
     </div>
 
