@@ -17,10 +17,6 @@
             --tag-text: #18181b;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -41,7 +37,6 @@
             padding: 5rem 1.5rem;
         }
 
-        /* Header / Hero Section */
         header {
             display: flex;
             align-items: center;
@@ -137,7 +132,6 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Skills & Tools Tags */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
@@ -154,65 +148,6 @@
             border: 1px solid var(--border-color);
         }
 
-        /* Process Steps (Figma / iOS App) */
-        .process-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        .process-step {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-        }
-
-        .step-number {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            background: var(--tag-bg);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            margin-bottom: 0.5rem;
-            border: 1px solid var(--border-color);
-        }
-
-        .process-step h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.4rem;
-        }
-
-        .process-step p {
-            color: var(--text-muted);
-            font-size: 0.92rem;
-            margin-bottom: 1rem;
-        }
-
-        .screenshot-container {
-            width: 100%;
-            background: #f1f5f9;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 200px;
-        }
-
-        .screenshot-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-        }
-
-        /* Tarjetas de Proyectos */
         .grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -268,7 +203,6 @@
             text-decoration: underline;
         }
 
-        /* Timeline / Experiencia */
         .timeline-item {
             margin-bottom: 2rem;
             padding-left: 1rem;
@@ -326,7 +260,7 @@
                     Trilingual professional (ES/FR/EN) experienced in project coordination, cross-functional team leadership, and digital workflow modernization. Passionate about building user-centric digital products and aligning business value with technical execution.
                 </p>
                 <div class="cta-group">
-                    <a href="#portfolio" class="btn-primary">View Portfolio & Projects ↓</a>
+                    <a href="portfolio.html" target="_blank" class="btn-primary">View Portfolio & Projects ↗</a>
                     <div class="contact-links">
                         <a href="mailto:yuraigg@gmail.com">yuraigg@gmail.com</a>
                         <a href="tel:+33695645993">+33 6 95 64 59 93</a>
@@ -351,60 +285,17 @@
             </div>
         </section>
 
-        <!-- FIGMA PROCESS & IOS APP SCREENSHOTS -->
-        <section id="portfolio">
-            <h2>iOS App Product Design Process (Figma)</h2>
-            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
-                Using Figma as the central core for organizing ideas, structured proposals, user solutions, and final prototyping during the iOS app development project at Simplon.
-            </p>
-            
-            <div class="process-grid">
-                <!-- Step 1 -->
-                <div class="process-step">
-                    <span class="step-number">Step 01</span>
-                    <h3>Organization of Ideas & Brainstorming</h3>
-                    <p>Structuring initial concepts, user research insights, and core feature requirements using collaborative boards in Figma.</p>
-                    <div class="screenshot-container">
-                        <img src="step1.png" alt="Step 1: Organization of Ideas">
-                    </div>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="process-step">
-                    <span class="step-number">Step 02</span>
-                    <h3>Proposals & Wireframing</h3>
-                    <p>Translating requirements into low-fidelity structural layouts and wireframes to map user flows effectively.</p>
-                    <div class="screenshot-container">
-                        <img src="step2.png" alt="Step 2: Proposals">
-                    </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="process-step">
-                    <span class="step-number">Step 03</span>
-                    <h3>User Solution & Iteration</h3>
-                    <p>Refining interface designs and usability adjustments based on cross-functional feedback and technical feasibility.</p>
-                    <div class="screenshot-container">
-                        <img src="step3.png" alt="Step 3: Solution">
-                    </div>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="process-step">
-                    <span class="step-number">Step 04</span>
-                    <h3>Final Product Prototype</h3>
-                    <p>High-fidelity, interactive iOS application prototype ready for stakeholder review and developer handoff.</p>
-                    <div class="screenshot-container">
-                        <img src="step4.png" alt="Step 4: Final Proposal">
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- FEATURED PROJECTS -->
         <section>
             <h2>Featured Projects</h2>
             <div class="grid">
+                <div class="card">
+                    <span class="card-tag">Mobile Product • Simplon</span>
+                    <h3>iOS Application Development Process (Figma)</h3>
+                    <p>Explore the end-to-end product design process using Figma: idea organization, wireframe proposals, user solutions, and final prototyping.</p>
+                    <a href="portfolio.html" target="_blank">View Figma Case Study ↗</a>
+                </div>
+
                 <div class="card">
                     <span class="card-tag">Data & Digitalization • Lyon</span>
                     <h3>Digital Archive Production & Database Structuring</h3>
