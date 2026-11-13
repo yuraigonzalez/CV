@@ -6,15 +6,15 @@
     <title>Yurai González - Product Manager & Portfolio</title>
     <style>
         :root {
-            --bg-color: #fafafa;
-            --text-main: #111111;
-            --text-muted: #666666;
-            --accent: #111111;
-            --accent-hover: #333333;
+            --bg-color: #f7f5f0; /* Tono crema estilo Yukaidu */
+            --text-main: #2c2522;  /* Marrón oscuro elegante */
+            --text-muted: #6b625d; /* Marrón grisáceo suave */
+            --accent: #2c2522;
+            --accent-hover: #4a403c;
             --card-bg: #ffffff;
-            --border-color: #eaeaea;
-            --tag-bg: #f4f4f5;
-            --tag-text: #18181b;
+            --border-color: #e6e2db;
+            --tag-bg: #eeebe3;
+            --tag-text: #2c2522;
         }
 
         * {
@@ -40,30 +40,33 @@
         header {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            gap: 2.5rem;
             margin-bottom: 4rem;
             padding-bottom: 3rem;
             border-bottom: 1px solid var(--border-color);
         }
 
+        /* Foto de perfil más grande y centrada para que no corte la cabeza */
         .avatar {
-            width: 110px;
-            height: 110px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
-            border: 1px solid var(--border-color);
+            object-position: center 20%; /* Enfoca la parte superior de la foto */
+            border: 2px solid var(--border-color);
             flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(44, 37, 34, 0.06);
         }
 
         .hero-content h1 {
-            font-size: 1.85rem;
+            font-size: 2rem;
             font-weight: 700;
             letter-spacing: -0.02em;
             margin-bottom: 0.2rem;
         }
 
         .subtitle {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
             font-weight: 500;
             margin-bottom: 0.8rem;
@@ -72,7 +75,7 @@
         .bio {
             color: var(--text-muted);
             font-size: 0.95rem;
-            line-height: 1.5;
+            line-height: 1.6;
             margin-bottom: 1.2rem;
         }
 
@@ -87,7 +90,7 @@
             display: inline-block;
             background-color: var(--accent);
             color: #ffffff;
-            padding: 0.6rem 1.25rem;
+            padding: 0.65rem 1.35rem;
             border-radius: 8px;
             text-decoration: none;
             font-size: 0.9rem;
@@ -159,11 +162,12 @@
             padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid var(--border-color);
+            box-shadow: 0 2px 8px rgba(44, 37, 34, 0.02);
             transition: border-color 0.2s ease, transform 0.2s ease;
         }
 
         .card:hover {
-            border-color: #cbd5e1;
+            border-color: #d4cfc5;
             transform: translateY(-2px);
         }
 
