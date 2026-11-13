@@ -89,7 +89,7 @@
             color: var(--text-main);
         }
 
-        /* CONTENEDOR PRINCIPAL MÁS COMPACTO Y EQUILIBRADO */
+        /* CONTENEDOR PRINCIPAL */
         .container {
             max-width: 960px;
             margin: 0 auto;
@@ -282,7 +282,7 @@
             transform: translateY(-1px);
         }
 
-        /* PROYECTOS EN CUADRÍCULA DE 2 COLUMNAS */
+        /* PROYECTOS */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -352,7 +352,7 @@
             gap: 0.6rem;
         }
 
-        /* EXPERIENCIA Y EDUCACIÓN EN DOS COLUMNAS ASIMÉTRICAS */
+        /* EXPERIENCIA Y EDUCACIÓN */
         .two-col-layout {
             display: grid;
             grid-template-columns: 1.45fr 1fr;
@@ -439,7 +439,6 @@
             margin-top: 2rem;
         }
 
-        /* RESPONSIVE PARA MÓVILES Y TABLETS */
         @media (max-width: 768px) {
             .projects-grid,
             .two-col-layout {
@@ -505,8 +504,8 @@
                 <div class="cta-group">
                     <a href="portfolio.html" target="_blank" class="btn-primary">View Full Portfolio ↗</a>
                     <div class="contact-links">
-                        <a href="mailto:yuraigg@gmail.com" class="contact-pill">✉ yuraigg@gmail.com</a>
-                        <a href="tel:+33695645993" class="contact-pill">✆ +33 6 95 64 59 93</a>
+                        <!-- En lugar de exponer el correo directamente, se usa un enlace mailto sutil o se puede cambiar por LinkedIn -->
+                        <a href="mailto:yuraigg@gmail.com" class="contact-pill">✉ Get in Touch</a>
                     </div>
                 </div>
             </div>
@@ -630,7 +629,7 @@
         </footer>
     </div>
 
-    <!-- PEQUEÑO SCRIPT PARA ANIMACIÓN SUAVE AL HACER SCROLL -->
+    <!-- SCRIPT PARA ANIMACIÓN SUAVE AL HACER SCROLL -->
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
